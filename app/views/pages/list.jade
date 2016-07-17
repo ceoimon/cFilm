@@ -1,0 +1,32 @@
+extend ../layout
+
+block content
+  .container
+    .row
+      table.table.table-hover.table-bordered
+        thead
+          tr
+            th Title
+            th IMDbId
+            th Year
+            th Created At
+            th Updated At
+            th Check
+            th Update
+            th Delete
+        tbody
+          each item in movies
+            tr(class="item-id-#{item.imdb.id}")
+              td #{item.title}
+              td #{item.imdb.id}
+              td #{item.year}
+              td #{moment(item.meta.createdAT).format('MM/DD/YYYY')}
+              td #{moment(item.meta.updateAT).format('MM/DD/YYYY')}
+              //- td #{item.meta.createdAT}
+              //- td #{item.meta.updateAT}
+              td: a(target="_blank", href="../movie/#{item.imdb.id}") 查看
+              td: a(target="_blank", href="../admin/movie?id=#{item.imdb.id}") 修改
+              td
+                button.btn.btn-danger.del(type="button", data-id="#{item.imdb.id}") 删除
+
+  script(src="/js/admin.js")

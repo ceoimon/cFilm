@@ -1,0 +1,21 @@
+extend ../layout
+
+block content
+  .container
+    .row
+      each item in movies
+        .col-md-3
+          .thumbnail
+            a(href="/movie/#{item.imdb.id}")
+              //- img(src="/img/poster/full/#{item.imdb.id}.jpg", alt="#{item.title}", style="height: 300px")
+              img(src="#{item.poster}", alt="#{item.title}", style="height: 300px")
+            .caption
+              a(href="/movie/#{item.imdb.id}")
+                h4 #{item.title} 
+                h4 #{item.cnTitle} 
+              .classification
+                each c in item.classification
+                  span.label.label-default #{c}
+                  = ' '
+              a.btn.btn-primary(href="/movie/#{item.imdb.id}", role="button", style="margin-top: 20px") 观看预告片
+                  //- span.classification #{item.classification}

@@ -1,0 +1,54 @@
+.hearder.container
+  .navbar.navbar-default.navbar-fixed-top
+    .container
+      .navbar-header
+        a.navbar-brand(href="/" style="padding: 10px")
+          img(alt="cFilm" width="32" height="32" src="/img/cFilm-Logo.svg")
+      if user
+        p.navbar-text.navbar-right
+          span #{user.name}
+          span &nbsp;|&nbsp;
+          a.navbar-link(href="/logout") Log Out
+      else
+        p.navbar-text.navbar-right
+          a.navbar-link(href="#", data-toggle="modal", data-target="#signupModal") Sign Up
+          span &nbsp;|&nbsp;
+          a.navbar-link(href="#", data-toggle="modal", data-target="#signinModal") Sign In
+  #signupModal.modal.fade
+    .modal-dialog
+      .modal-content
+        form.sign-up(method="POST", action="/user/signup")
+          .modal-header Sign Up
+          .modal-body
+            .form-group.has-feedback
+              label(for="signupName") User Name
+              input#signupName.form-control(name="user[name]", type="text" required placeholder="Begin with letter, 4-12 character, can contain letter, number and '_'.")
+              span.glyphicon.form-control-feedback(aria-hidden="true")
+              p.hidden.text-danger Username already exists.
+            .form-group.has-feedback
+              label(for="signupPassword") Password
+              input#signupPassword.form-control(name="user[password]", type="password" required)
+          .modal-footer
+            button.btn.btn-default(type="button", data-dismiss="modal") Close
+            button.ajax-submit.btn.btn-success(type="submit") Submit
+            if error
+              p.hidden.bg-danger Unknown error!
+  #signinModal.modal.fade
+    .modal-dialog
+      .modal-content
+        form.sign-in(method="POST", action="/user/signin")
+          .modal-header Sign In
+          .modal-body
+            .form-group
+              label(for="signinpName") User Name
+              input#signinName.form-control(name="user[name]", type="text")
+            .form-group
+              label(for="signinPassword") Password
+              input#signinPassword.form-control(name="user[password]", type="password")
+          .modal-footer
+            button.btn.btn-default(type="button", data-dismiss="modal") Close
+            button.ajax-submit.btn.btn-success(type="submit") Submit
+  .row
+    .page-header
+      h1= title
+      small cFilm

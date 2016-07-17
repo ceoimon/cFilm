@@ -1,0 +1,73 @@
+extend ../layout
+
+block content
+  .container
+    .row
+      form.form-horizontal(method="post", action="/admin/movie/record")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputTitle") Title
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[title]", value="#{movie.title}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputCNTitle") cnTitle
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[cnTitle]", value="#{movie.cnTitle}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputDirector") Director
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[director]", value="#{movie.director}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputClassification") Classification
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[classification]", value="#{movie.classification}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputIMDbID") IMDb ID
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[imdb][id]", value="#{movie.imdb.id}")
+        //- .form-group
+        //-   lablel.col-sm-2.control-label(for="inputIMDbAddress") IMDb Address
+        //-   .col-sm-10
+        //-     input#inputTitle.form-control(type="text", name="movie[imdb][url]", value="#{movie.imdb.url}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputIMDbScore") IMDb Score
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[imdb][score]", value="#{movie.imdb.score}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputDoubanScore") Douban Score
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[douban][score]", value="#{movie.douban.score}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputRTFresh") RottenTomatoes Fresh
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[rottentomatoes][tomatoes]", value="#{movie.rottentomatoes.tomatoes}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputRTPopcorn") RottenTomatoes Popcorn
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[rottentomatoes][popcorn]", value="#{movie.rottentomatoes.popcorn}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputTrailer") Trailer Address
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[trailer]", value="#{movie.trailer}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputPoster") Poster Address
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[poster]", value="#{movie.poster}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputYear") Year
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[year]", value="#{movie.year}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputDuration") Duration
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[duration]", value="#{movie.duration}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputStars") Stars
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[stars]", value="#{movie.stars}")
+        .form-group
+          lablel.col-sm-2.control-label(for="inputSummary") Summary
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[summary]", value="#{movie.summary}")
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-default(type="submit") Record

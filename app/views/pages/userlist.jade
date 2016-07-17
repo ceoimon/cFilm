@@ -1,0 +1,18 @@
+extend ../layout
+
+block content
+  .container
+    .row
+      table.table.table-hover.table-bordered
+        thead
+          tr
+            th User Name
+            th Sign Up At
+            th Delete
+        tbody
+          each item in users
+            tr(class="item-id-#{item._id}")
+              td #{item.name}
+              td #{moment(item.meta.createdAT).format('MM/DD/YYYY')}
+              td
+                button.btn.btn-danger.del(type="button", data-id="#{item._id}") DELETE
